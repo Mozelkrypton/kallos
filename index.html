@@ -3,11 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Kallos Youth Empowerment — A Christ-centered movement equipping young people spiritually, socially, and economically to transform society." />
   <title>Kallos Youth Empowerment</title>
+
+  <!-- Favicon -->
   <link rel="icon" type="image/png" href="images/icons/favicon1.png" />
+
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400&display=swap" rel="stylesheet" />
+
+  <!-- Global CSS -->
   <link rel="stylesheet" href="css/reset.css" />
   <link rel="stylesheet" href="css/base.css" />
   <link rel="stylesheet" href="css/layout.css" />
@@ -15,725 +22,16 @@
   <link rel="stylesheet" href="css/utilities.css" />
   <link rel="stylesheet" href="css/main.css" />
 
-  <style>
-    /* ─── Design Tokens ─────────────────────────────────────────── */
-    :root {
-      --ink:        #0E0E0E;
-      --canvas:     #F7F5F0;
-      --gold:       #C8A45A;
-      --gold-light: #E8D4A0;
-      --earth:      #2B2218;
-      --mist:       #E9E6DF;
-      --accent:     #4A6741;   /* deep olive-green — KYE's growth motif */
-
-      --ff-display: 'Cormorant Garamond', Georgia, serif;
-      --ff-body:    'DM Sans', system-ui, sans-serif;
-      --ff-mono:    'DM Mono', monospace;
-
-      --step--1: clamp(0.8rem,  0.76rem + 0.18vw, 0.9rem);
-      --step-0:  clamp(1rem,    0.95rem + 0.24vw, 1.125rem);
-      --step-1:  clamp(1.2rem,  1.1rem  + 0.48vw, 1.5rem);
-      --step-2:  clamp(1.5rem,  1.3rem  + 0.96vw, 2rem);
-      --step-3:  clamp(2rem,    1.6rem  + 1.9vw,  3rem);
-      --step-4:  clamp(2.8rem,  2rem    + 3.8vw,  5rem);
-      --step-5:  clamp(4rem,    2.6rem  + 6.8vw,  8rem);
-
-      --space-xs:  0.5rem;
-      --space-s:   1rem;
-      --space-m:   2rem;
-      --space-l:   4rem;
-      --space-xl:  7rem;
-      --space-2xl: 12rem;
-
-      --radius: 2px;
-      --transition: 0.28s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    /* ─── Global Reset Additions ────────────────────────────────── */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: var(--ff-body);
-      font-size: var(--step-0);
-      color: var(--ink);
-      background: var(--canvas);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-    }
-    img { display: block; max-width: 100%; }
-    a { color: inherit; text-decoration: none; }
-
-    /* ─── Skip Link ─────────────────────────────────────────────── */
-    .skip-link {
-      position: absolute;
-      top: -100%;
-      left: var(--space-s);
-      background: var(--gold);
-      color: var(--earth);
-      padding: 0.4rem 1rem;
-      font-size: var(--step--1);
-      font-family: var(--ff-mono);
-      border-radius: var(--radius);
-      z-index: 9999;
-    }
-    .skip-link:focus { top: var(--space-s); }
-
-    /* ─── Nav ───────────────────────────────────────────────────── */
-    .nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 1.2rem var(--space-m);
-      background: transparent;
-      transition: background var(--transition), backdrop-filter var(--transition);
-    }
-    .nav.scrolled {
-      background: rgba(247, 245, 240, 0.92);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--mist);
-    }
-    .nav__logo {
-      font-family: var(--ff-display);
-      font-size: var(--step-2);
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      color: var(--canvas);
-      transition: color var(--transition);
-    }
-    .nav.scrolled .nav__logo { color: var(--earth); }
-    .nav__logo span { color: var(--gold); }
-
-    .nav__links {
-      display: flex;
-      gap: var(--space-m);
-      list-style: none;
-    }
-    .nav__links a {
-      font-size: var(--step--1);
-      font-weight: 500;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: rgba(247,245,240,0.8);
-      transition: color var(--transition);
-    }
-    .nav.scrolled .nav__links a { color: var(--ink); }
-    .nav__links a:hover { color: var(--gold); }
-
-    .nav__cta {
-      font-size: var(--step--1);
-      font-weight: 500;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      padding: 0.5rem 1.2rem;
-      border: 1px solid var(--gold);
-      color: var(--gold);
-      border-radius: var(--radius);
-      transition: background var(--transition), color var(--transition);
-    }
-    .nav__cta:hover { background: var(--gold); color: var(--earth); }
-
-    .nav__hamburger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 4px;
-    }
-    .nav__hamburger span {
-      display: block;
-      width: 24px;
-      height: 2px;
-      background: var(--canvas);
-      transition: background var(--transition);
-    }
-    .nav.scrolled .nav__hamburger span { background: var(--ink); }
-
-    /* ─── Hero ──────────────────────────────────────────────────── */
-    .hero {
-      position: relative;
-      min-height: 100svh;
-      display: grid;
-      place-items: center;
-      overflow: hidden;
-      background: var(--earth);
-    }
-
-    /* Signature element: living verse — a golden arc of scripture */
-    .hero__arc {
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-    }
-    .hero__arc svg {
-      width: 100%;
-      height: 100%;
-      opacity: 0.07;
-    }
-
-    /* Grain texture overlay */
-    .hero::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E");
-      opacity: 0.18;
-      mix-blend-mode: overlay;
-      pointer-events: none;
-    }
-
-    /* Diagonal gold slash — the real signature */
-    .hero::after {
-      content: '';
-      position: absolute;
-      top: -10%;
-      right: -5%;
-      width: 38vw;
-      height: 130%;
-      background: linear-gradient(180deg, var(--gold) 0%, transparent 80%);
-      opacity: 0.08;
-      transform: rotate(-12deg);
-      pointer-events: none;
-    }
-
-    .hero__content {
-      position: relative;
-      z-index: 2;
-      text-align: center;
-      padding: var(--space-xl) var(--space-m);
-      max-width: 900px;
-    }
-
-    .hero__eyebrow {
-      display: inline-block;
-      font-family: var(--ff-mono);
-      font-size: var(--step--1);
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: var(--space-m);
-      opacity: 0;
-      transform: translateY(12px);
-      animation: fadeUp 0.7s 0.2s forwards;
-    }
-
-    .hero__headline {
-      font-family: var(--ff-display);
-      font-size: var(--step-5);
-      font-weight: 700;
-      line-height: 1.0;
-      letter-spacing: -0.03em;
-      color: var(--canvas);
-      margin-bottom: var(--space-m);
-      opacity: 0;
-      transform: translateY(16px);
-      animation: fadeUp 0.8s 0.4s forwards;
-    }
-    .hero__headline em {
-      font-style: italic;
-      color: var(--gold);
-    }
-
-    .hero__sub {
-      font-size: var(--step-1);
-      font-weight: 300;
-      color: rgba(247,245,240,0.65);
-      max-width: 560px;
-      margin: 0 auto var(--space-l);
-      line-height: 1.7;
-      opacity: 0;
-      transform: translateY(12px);
-      animation: fadeUp 0.8s 0.6s forwards;
-    }
-
-    .hero__actions {
-      display: flex;
-      gap: var(--space-s);
-      justify-content: center;
-      flex-wrap: wrap;
-      opacity: 0;
-      transform: translateY(12px);
-      animation: fadeUp 0.8s 0.8s forwards;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.85rem 2rem;
-      font-family: var(--ff-body);
-      font-size: var(--step--1);
-      font-weight: 500;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      border-radius: var(--radius);
-      transition: all var(--transition);
-      cursor: pointer;
-    }
-    .btn--gold {
-      background: var(--gold);
-      color: var(--earth);
-      border: 1px solid var(--gold);
-    }
-    .btn--gold:hover { background: var(--gold-light); border-color: var(--gold-light); }
-    .btn--ghost {
-      background: transparent;
-      color: var(--canvas);
-      border: 1px solid rgba(247,245,240,0.3);
-    }
-    .btn--ghost:hover { border-color: var(--canvas); }
-
-    .hero__scroll {
-      position: absolute;
-      bottom: var(--space-m);
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.4rem;
-      color: rgba(247,245,240,0.4);
-      font-family: var(--ff-mono);
-      font-size: var(--step--1);
-      letter-spacing: 0.1em;
-      animation: fadeUp 1s 1.2s forwards;
-      opacity: 0;
-    }
-    .hero__scroll-line {
-      width: 1px;
-      height: 40px;
-      background: linear-gradient(to bottom, var(--gold), transparent);
-      animation: scrollPulse 2s 2s infinite;
-    }
-
-    /* ─── Verse Band ─────────────────────────────────────────────── */
-    .verse-band {
-      background: var(--gold);
-      padding: var(--space-m) var(--space-m);
-      text-align: center;
-    }
-    .verse-band__text {
-      font-family: var(--ff-display);
-      font-size: var(--step-2);
-      font-style: italic;
-      font-weight: 400;
-      color: var(--earth);
-      max-width: 800px;
-      margin: 0 auto;
-      line-height: 1.4;
-    }
-    .verse-band__ref {
-      display: block;
-      font-family: var(--ff-mono);
-      font-size: var(--step--1);
-      font-style: normal;
-      margin-top: 0.5rem;
-      opacity: 0.7;
-      letter-spacing: 0.1em;
-    }
-
-    /* ─── Section Base ───────────────────────────────────────────── */
-    .section {
-      padding: var(--space-xl) var(--space-m);
-    }
-    .section__inner {
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-    .section__label {
-      font-family: var(--ff-mono);
-      font-size: var(--step--1);
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: var(--space-s);
-    }
-    .section__heading {
-      font-family: var(--ff-display);
-      font-size: var(--step-4);
-      font-weight: 700;
-      line-height: 1.1;
-      letter-spacing: -0.02em;
-      color: var(--earth);
-      margin-bottom: var(--space-m);
-    }
-    .section__heading em {
-      font-style: italic;
-      color: var(--accent);
-    }
-    .section__body {
-      font-size: var(--step-0);
-      color: #4A4540;
-      max-width: 640px;
-      line-height: 1.8;
-    }
-
-    /* ─── About ──────────────────────────────────────────────────── */
-    .about { background: var(--canvas); }
-    .about__grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: var(--space-l);
-      align-items: center;
-    }
-    .about__image-stack {
-      position: relative;
-      height: 480px;
-    }
-    .about__img {
-      position: absolute;
-      border-radius: var(--radius);
-      object-fit: cover;
-    }
-    .about__img--back {
-      width: 75%;
-      height: 85%;
-      top: 0; right: 0;
-      filter: grayscale(20%);
-    }
-    .about__img--front {
-      width: 55%;
-      height: 65%;
-      bottom: 0; left: 0;
-      border: 4px solid var(--canvas);
-      box-shadow: 0 8px 32px rgba(14,14,14,0.12);
-    }
-    .about__accent-line {
-      position: absolute;
-      top: 12%;
-      left: 20%;
-      width: 3px;
-      height: 40%;
-      background: var(--gold);
-    }
-
-    .about__stats {
-      display: flex;
-      gap: var(--space-l);
-      margin-top: var(--space-l);
-      padding-top: var(--space-m);
-      border-top: 1px solid var(--mist);
-    }
-    .stat__number {
-      font-family: var(--ff-display);
-      font-size: var(--step-4);
-      font-weight: 700;
-      color: var(--earth);
-      line-height: 1;
-    }
-    .stat__label {
-      font-size: var(--step--1);
-      color: #7A736A;
-      margin-top: 0.2rem;
-      letter-spacing: 0.04em;
-    }
-
-    /* ─── Pillars ─────────────────────────────────────────────────── */
-    .pillars { background: var(--earth); }
-    .pillars .section__heading { color: var(--canvas); }
-    .pillars .section__body { color: rgba(247,245,240,0.6); }
-
-    .pillars__grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: var(--space-s);
-      margin-top: var(--space-l);
-    }
-    .pillar {
-      padding: var(--space-m);
-      border: 1px solid rgba(200,164,90,0.15);
-      border-radius: var(--radius);
-      transition: border-color var(--transition), background var(--transition);
-      position: relative;
-      overflow: hidden;
-    }
-    .pillar::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%;
-      height: 2px;
-      background: var(--gold);
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform var(--transition);
-    }
-    .pillar:hover { border-color: rgba(200,164,90,0.4); background: rgba(200,164,90,0.04); }
-    .pillar:hover::before { transform: scaleX(1); }
-
-    .pillar__icon {
-      font-size: 1.6rem;
-      margin-bottom: var(--space-s);
-    }
-    .pillar__title {
-      font-family: var(--ff-display);
-      font-size: var(--step-2);
-      font-weight: 600;
-      color: var(--canvas);
-      margin-bottom: var(--space-xs);
-    }
-    .pillar__desc {
-      font-size: var(--step--1);
-      color: rgba(247,245,240,0.55);
-      line-height: 1.7;
-    }
-
-    /* ─── Values ──────────────────────────────────────────────────── */
-    .values { background: var(--mist); }
-    .values__list {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1px;
-      margin-top: var(--space-l);
-      background: var(--mist);
-      border: 1px solid #D8D4CC;
-    }
-    .value {
-      padding: var(--space-m);
-      background: var(--canvas);
-      display: flex;
-      gap: var(--space-m);
-      align-items: flex-start;
-      transition: background var(--transition);
-    }
-    .value:hover { background: var(--gold-light); }
-    .value__letter {
-      font-family: var(--ff-display);
-      font-size: var(--step-4);
-      font-weight: 700;
-      color: var(--gold);
-      line-height: 1;
-      flex-shrink: 0;
-      opacity: 0.5;
-    }
-    .value__content {}
-    .value__title {
-      font-family: var(--ff-display);
-      font-size: var(--step-2);
-      font-weight: 600;
-      color: var(--earth);
-      margin-bottom: 0.3rem;
-    }
-    .value__desc {
-      font-size: var(--step--1);
-      color: #5A534A;
-      line-height: 1.7;
-    }
-
-    /* ─── Programs Preview ───────────────────────────────────────── */
-    .programs { background: var(--canvas); }
-    .programs__grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: var(--space-m);
-      margin-top: var(--space-l);
-    }
-    .program-card {
-      position: relative;
-      padding: var(--space-m);
-      background: var(--earth);
-      border-radius: var(--radius);
-      overflow: hidden;
-      color: var(--canvas);
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-s);
-      min-height: 280px;
-      transition: transform var(--transition);
-    }
-    .program-card:hover { transform: translateY(-4px); }
-    .program-card__bg {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, var(--accent) 0%, var(--earth) 100%);
-      opacity: 0;
-      transition: opacity var(--transition);
-    }
-    .program-card:hover .program-card__bg { opacity: 0.15; }
-
-    .program-card__tag {
-      font-family: var(--ff-mono);
-      font-size: var(--step--1);
-      letter-spacing: 0.1em;
-      color: var(--gold);
-    }
-    .program-card__title {
-      font-family: var(--ff-display);
-      font-size: var(--step-3);
-      font-weight: 700;
-      line-height: 1.1;
-      flex: 1;
-    }
-    .program-card__desc {
-      font-size: var(--step--1);
-      color: rgba(247,245,240,0.6);
-      line-height: 1.7;
-    }
-    .program-card__link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      font-size: var(--step--1);
-      font-weight: 500;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: var(--gold);
-      transition: gap var(--transition);
-    }
-    .program-card__link:hover { gap: 0.7rem; }
-
-    /* ─── CTA Band ────────────────────────────────────────────────── */
-    .cta-band {
-      background: var(--accent);
-      padding: var(--space-xl) var(--space-m);
-      text-align: center;
-    }
-    .cta-band__heading {
-      font-family: var(--ff-display);
-      font-size: var(--step-4);
-      font-weight: 700;
-      line-height: 1.1;
-      color: var(--canvas);
-      margin-bottom: var(--space-s);
-    }
-    .cta-band__sub {
-      font-size: var(--step-0);
-      color: rgba(247,245,240,0.7);
-      margin-bottom: var(--space-l);
-      max-width: 520px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .btn--canvas {
-      background: var(--canvas);
-      color: var(--accent);
-      border: 1px solid var(--canvas);
-    }
-    .btn--canvas:hover { background: var(--gold-light); border-color: var(--gold-light); }
-
-    /* ─── Footer ─────────────────────────────────────────────────── */
-    .footer {
-      background: var(--ink);
-      color: rgba(247,245,240,0.55);
-      padding: var(--space-l) var(--space-m) var(--space-m);
-    }
-    .footer__inner {
-      max-width: 1100px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr 1fr;
-      gap: var(--space-l);
-      padding-bottom: var(--space-l);
-      border-bottom: 1px solid rgba(247,245,240,0.08);
-    }
-    .footer__brand {}
-    .footer__logo {
-      font-family: var(--ff-display);
-      font-size: var(--step-2);
-      font-weight: 700;
-      color: var(--canvas);
-      margin-bottom: var(--space-s);
-    }
-    .footer__logo span { color: var(--gold); }
-    .footer__tagline {
-      font-size: var(--step--1);
-      line-height: 1.7;
-      max-width: 240px;
-    }
-
-    .footer__col h4 {
-      font-family: var(--ff-mono);
-      font-size: var(--step--1);
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: var(--space-s);
-    }
-    .footer__col ul { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
-    .footer__col a {
-      font-size: var(--step--1);
-      color: rgba(247,245,240,0.55);
-      transition: color var(--transition);
-    }
-    .footer__col a:hover { color: var(--canvas); }
-
-    .footer__bottom {
-      max-width: 1100px;
-      margin: var(--space-m) auto 0;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: var(--step--1);
-      font-family: var(--ff-mono);
-    }
-    .footer__verse {
-      font-family: var(--ff-display);
-      font-style: italic;
-      font-size: var(--step-0);
-      color: rgba(247,245,240,0.3);
-    }
-
-    /* ─── Animations ─────────────────────────────────────────────── */
-    @keyframes fadeUp {
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes scrollPulse {
-      0%, 100% { opacity: 0.4; }
-      50% { opacity: 1; }
-    }
-
-    .reveal {
-      opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
-    }
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .reveal-delay-1 { transition-delay: 0.1s; }
-    .reveal-delay-2 { transition-delay: 0.2s; }
-    .reveal-delay-3 { transition-delay: 0.3s; }
-    .reveal-delay-4 { transition-delay: 0.4s; }
-    .reveal-delay-5 { transition-delay: 0.5s; }
-    .reveal-delay-6 { transition-delay: 0.6s; }
-
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after { animation: none !important; transition: none !important; }
-      .hero__eyebrow, .hero__headline, .hero__sub, .hero__actions, .hero__scroll { opacity: 1; transform: none; }
-      .reveal { opacity: 1; transform: none; }
-    }
-
-    /* ─── Responsive ─────────────────────────────────────────────── */
-    @media (max-width: 900px) {
-      .about__grid { grid-template-columns: 1fr; }
-      .about__image-stack { height: 340px; }
-      .pillars__grid { grid-template-columns: 1fr; }
-      .programs__grid { grid-template-columns: 1fr; }
-      .footer__inner { grid-template-columns: 1fr 1fr; }
-    }
-
-    @media (max-width: 700px) {
-      .values__list { grid-template-columns: 1fr; }
-      .nav__links, .nav__cta { display: none; }
-      .nav__hamburger { display: flex; }
-      .about__stats { flex-direction: column; gap: var(--space-m); }
-      .footer__inner { grid-template-columns: 1fr; }
-      .footer__bottom { flex-direction: column; gap: var(--space-s); text-align: center; }
-    }
-  </style>
+  <!-- Page CSS -->
+  <link rel="stylesheet" href="css/pages/home.css" />
 </head>
 <body>
 
   <a class="skip-link" href="#main">Skip to main content</a>
 
-  <!-- ─── Nav ──────────────────────────────────────────────────── -->
+  <!-- ─── Nav ──────────────────────────────────────────── -->
   <nav class="nav" id="nav" aria-label="Main navigation">
-    <a href="index.html" class="nav__logo">Kallos<span>.</span></a>
+    <a href="index.html" class="nav__logo">Kallos<span class="nav__logo-dot">.</span></a>
     <ul class="nav__links">
       <li><a href="pages/about.html">About</a></li>
       <li><a href="pages/programs.html">Programs</a></li>
@@ -741,25 +39,28 @@
       <li><a href="pages/media.html">Media</a></li>
       <li><a href="pages/contact.html">Contact</a></li>
     </ul>
-    <a href="pages/get-involved.html" class="nav__cta">Get Involved</a>
+    <a href="pages/get-involved.html" class="nav__cta btn btn--outline">Get Involved</a>
     <button class="nav__hamburger" aria-label="Open menu" aria-expanded="false">
-      <span></span><span></span><span></span>
+      <span></span>
+      <span></span>
+      <span></span>
     </button>
   </nav>
 
   <main id="main">
 
-    <!-- ─── Hero ─────────────────────────────────────────────────── -->
+    <!-- ─── Hero ─────────────────────────────────────────── -->
     <section class="hero" aria-label="Hero">
       <div class="hero__arc" aria-hidden="true">
-        <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" fill="none">
-          <circle cx="720" cy="450" r="600" stroke="#C8A45A" stroke-width="1"/>
-          <circle cx="720" cy="450" r="400" stroke="#C8A45A" stroke-width="0.5"/>
-          <circle cx="720" cy="450" r="200" stroke="#C8A45A" stroke-width="0.5"/>
-          <line x1="0" y1="450" x2="1440" y2="450" stroke="#C8A45A" stroke-width="0.5"/>
-          <line x1="720" y1="0" x2="720" y2="900" stroke="#C8A45A" stroke-width="0.5"/>
+        <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="720" cy="450" r="600" stroke="currentColor" stroke-width="1"/>
+          <circle cx="720" cy="450" r="400" stroke="currentColor" stroke-width="0.5"/>
+          <circle cx="720" cy="450" r="200" stroke="currentColor" stroke-width="0.5"/>
+          <line x1="0" y1="450" x2="1440" y2="450" stroke="currentColor" stroke-width="0.5"/>
+          <line x1="720" y1="0" x2="720" y2="900" stroke="currentColor" stroke-width="0.5"/>
         </svg>
       </div>
+      <div class="hero__slash" aria-hidden="true"></div>
 
       <div class="hero__content">
         <span class="hero__eyebrow">Kallos Youth Empowerment</span>
@@ -783,16 +84,16 @@
       </div>
     </section>
 
-    <!-- ─── Verse Band ────────────────────────────────────────────── -->
+    <!-- ─── Verse Band ────────────────────────────────────── -->
     <div class="verse-band" role="complementary" aria-label="Scripture">
-      <p class="verse-band__text">
+      <blockquote class="verse-band__text">
         "For we are God's handiwork, created in Christ Jesus to do good works,
         which God prepared in advance for us to do."
-        <span class="verse-band__ref">— Ephesians 2:10</span>
-      </p>
+        <cite class="verse-band__ref">— Ephesians 2:10</cite>
+      </blockquote>
     </div>
 
-    <!-- ─── About ─────────────────────────────────────────────────── -->
+    <!-- ─── About ─────────────────────────────────────────── -->
     <section class="section about" aria-labelledby="about-heading">
       <div class="section__inner">
         <div class="about__grid">
@@ -801,7 +102,7 @@
             <img class="about__img about__img--front" src="images/team/kyeimage2.jpeg" alt="KYE youth leadership" />
             <div class="about__accent-line" aria-hidden="true"></div>
           </div>
-          <div>
+          <div class="about__copy">
             <p class="section__label reveal">Who We Are</p>
             <h2 class="section__heading reveal reveal-delay-1" id="about-heading">
               A generation <em>rising</em> with purpose
@@ -814,16 +115,16 @@
             </p>
             <div class="about__stats reveal reveal-delay-3">
               <div class="stat">
-                <div class="stat__number">18–30</div>
-                <div class="stat__label">Age focus</div>
+                <span class="stat__number">18–30</span>
+                <span class="stat__label">Age focus</span>
               </div>
               <div class="stat">
-                <div class="stat__number">3</div>
-                <div class="stat__label">Empowerment pillars</div>
+                <span class="stat__number">3</span>
+                <span class="stat__label">Empowerment pillars</span>
               </div>
               <div class="stat">
-                <div class="stat__number">7</div>
-                <div class="stat__label">Active departments</div>
+                <span class="stat__number">7</span>
+                <span class="stat__label">Active departments</span>
               </div>
             </div>
           </div>
@@ -831,7 +132,7 @@
       </div>
     </section>
 
-    <!-- ─── Pillars ───────────────────────────────────────────────── -->
+    <!-- ─── Pillars ───────────────────────────────────────── -->
     <section class="section pillars" aria-labelledby="pillars-heading">
       <div class="section__inner">
         <p class="section__label reveal">What We Do</p>
@@ -843,89 +144,87 @@
           lasting transformation is always spiritual, social, and economic at once.
         </p>
         <div class="pillars__grid">
-          <div class="pillar reveal reveal-delay-2">
-            <div class="pillar__icon">✦</div>
+          <article class="pillar reveal reveal-delay-2">
+            <div class="pillar__icon" aria-hidden="true">✦</div>
             <h3 class="pillar__title">Spiritual</h3>
             <p class="pillar__desc">
               Discipleship programs, Bible study fellowships, prayer movements,
               and worship gatherings that root identity in Christ.
             </p>
-          </div>
-          <div class="pillar reveal reveal-delay-3">
-            <div class="pillar__icon">◎</div>
+          </article>
+          <article class="pillar reveal reveal-delay-3">
+            <div class="pillar__icon" aria-hidden="true">◎</div>
             <h3 class="pillar__title">Social</h3>
             <p class="pillar__desc">
               Mentorship, mental health support, and community service missions
               that build resilient, connected young people.
             </p>
-          </div>
-          <div class="pillar reveal reveal-delay-4">
-            <div class="pillar__icon">◈</div>
+          </article>
+          <article class="pillar reveal reveal-delay-4">
+            <div class="pillar__icon" aria-hidden="true">◈</div>
             <h3 class="pillar__title">Economic</h3>
             <p class="pillar__desc">
               Skills training, entrepreneurship support, career development, and
               table banking to create sustainable livelihoods.
             </p>
-          </div>
+          </article>
         </div>
       </div>
     </section>
 
-    <!-- ─── Values ────────────────────────────────────────────────── -->
+    <!-- ─── Values ────────────────────────────────────────── -->
     <section class="section values" aria-labelledby="values-heading">
       <div class="section__inner">
         <p class="section__label reveal">What We Stand On</p>
-        <h2 class="section__heading reveal reveal-delay-1" id="values-heading">
-          Core values
-        </h2>
-        <div class="values__list" role="list">
-          <div class="value reveal" role="listitem">
+        <h2 class="section__heading reveal reveal-delay-1" id="values-heading">Core values</h2>
+        <ul class="values__list" role="list">
+          <li class="value reveal" role="listitem">
             <span class="value__letter" aria-hidden="true">F</span>
             <div class="value__content">
               <h3 class="value__title">Faith in Christ</h3>
               <p class="value__desc">Building every initiative on the foundation of God's Word, His love, and prayer.</p>
             </div>
-          </div>
-          <div class="value reveal reveal-delay-1" role="listitem">
+          </li>
+          <li class="value reveal reveal-delay-1" role="listitem">
             <span class="value__letter" aria-hidden="true">I</span>
             <div class="value__content">
               <h3 class="value__title">Integrity</h3>
               <p class="value__desc">Living with authenticity, accountability, and excellence in every area of life.</p>
             </div>
-          </div>
-          <div class="value reveal reveal-delay-2" role="listitem">
+          </li>
+          <li class="value reveal reveal-delay-2" role="listitem">
             <span class="value__letter" aria-hidden="true">E</span>
             <div class="value__content">
               <h3 class="value__title">Empowerment</h3>
               <p class="value__desc">Equipping young people with the knowledge, skills, and resources needed to thrive.</p>
             </div>
-          </div>
-          <div class="value reveal reveal-delay-3" role="listitem">
+          </li>
+          <li class="value reveal reveal-delay-3" role="listitem">
             <span class="value__letter" aria-hidden="true">C</span>
             <div class="value__content">
               <h3 class="value__title">Community</h3>
               <p class="value__desc">Fostering love, unity, and collaboration across cultures and backgrounds.</p>
             </div>
-          </div>
-          <div class="value reveal reveal-delay-4" role="listitem">
+          </li>
+          <li class="value reveal reveal-delay-4" role="listitem">
             <span class="value__letter" aria-hidden="true">L</span>
             <div class="value__content">
               <h3 class="value__title">Leadership</h3>
               <p class="value__desc">Raising visionary, servant-hearted leaders who create lasting impact.</p>
             </div>
-          </div>
-          <div class="value reveal reveal-delay-5" role="listitem">
+          </li>
+          <li class="value reveal reveal-delay-5" role="listitem">
             <span class="value__letter" aria-hidden="true">S</span>
             <div class="value__content">
               <h3 class="value__title">Service</h3>
               <p class="value__desc">Demonstrating God's love through impactful acts of compassion and social transformation.</p>
             </div>
-          </div>
-        </div>
+          </li>
+        </ul>
       </div>
     </section>
 
-    <!-- ─── Programs ──────────────────────────────────────────────── -->
+    <!-- ─── Programs Preview ──────────────────────────────── -->
     <section class="section programs" aria-labelledby="programs-heading">
       <div class="section__inner">
         <p class="section__label reveal">Get Equipped</p>
@@ -936,21 +235,21 @@
           <a href="pages/programs.html#spiritual" class="program-card reveal reveal-delay-1">
             <div class="program-card__bg" aria-hidden="true"></div>
             <span class="program-card__tag">01 — Spiritual</span>
-            <h3 class="program-card__title">Discipleship & Prayer</h3>
+            <h3 class="program-card__title">Discipleship &amp; Prayer</h3>
             <p class="program-card__desc">Deep Bible study, fellowships, and prayer movements to anchor your faith.</p>
             <span class="program-card__link">Explore →</span>
           </a>
           <a href="pages/programs.html#social" class="program-card reveal reveal-delay-2">
             <div class="program-card__bg" aria-hidden="true"></div>
             <span class="program-card__tag">02 — Social</span>
-            <h3 class="program-card__title">Mentorship & Outreach</h3>
+            <h3 class="program-card__title">Mentorship &amp; Outreach</h3>
             <p class="program-card__desc">Walk alongside mentors and serve your community through real-world missions.</p>
             <span class="program-card__link">Explore →</span>
           </a>
           <a href="pages/programs.html#economic" class="program-card reveal reveal-delay-3">
             <div class="program-card__bg" aria-hidden="true"></div>
             <span class="program-card__tag">03 — Economic</span>
-            <h3 class="program-card__title">Skills & Entrepreneurship</h3>
+            <h3 class="program-card__title">Skills &amp; Entrepreneurship</h3>
             <p class="program-card__desc">Vocational training, career development, and table banking for sustainable impact.</p>
             <span class="program-card__link">Explore →</span>
           </a>
@@ -958,9 +257,9 @@
       </div>
     </section>
 
-    <!-- ─── CTA Band ──────────────────────────────────────────────── -->
+    <!-- ─── CTA Band ──────────────────────────────────────── -->
     <div class="cta-band" role="complementary">
-      <div class="section__inner" style="text-align:center;">
+      <div class="section__inner cta-band__inner">
         <h2 class="cta-band__heading reveal">
           Ready to be part<br />of what God is building?
         </h2>
@@ -976,11 +275,11 @@
 
   </main>
 
-  <!-- ─── Footer ────────────────────────────────────────────────── -->
+  <!-- ─── Footer ────────────────────────────────────────── -->
   <footer class="footer" aria-label="Site footer">
     <div class="footer__inner">
       <div class="footer__brand">
-        <div class="footer__logo">Kallos<span>.</span></div>
+        <p class="footer__logo">Kallos<span>.</span></p>
         <p class="footer__tagline">
           Raising a generation of Christ-centered, purpose-driven young people
           who transform society.
@@ -1020,28 +319,10 @@
     </div>
   </footer>
 
+  <!-- Scripts -->
   <script src="js/nav.js"></script>
   <script src="js/animations.js"></script>
   <script src="js/main.js"></script>
-  <script>
-    // Nav scroll state
-    const nav = document.getElementById('nav');
-    window.addEventListener('scroll', () => {
-      nav.classList.toggle('scrolled', window.scrollY > 40);
-    }, { passive: true });
-
-    // Scroll reveal
-    const reveals = document.querySelectorAll('.reveal');
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.classList.add('visible');
-          observer.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-    reveals.forEach(el => observer.observe(el));
-  </script>
 
 </body>
 </html>
