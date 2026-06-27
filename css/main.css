@@ -1,0 +1,15 @@
+.header{
+
+}
+.navbar{
+    background-color: var(---primary-color);
+    color: var(---secondary-color);
+    font-family: var(---font-family);
+    font-size: var(---font-size);
+    line-height: var(---line-height);
+}   
+.header .navbar a{
+    color: var(---secondary-color);
+    text-decoration: none;
+    padding: 10px;
+}   
