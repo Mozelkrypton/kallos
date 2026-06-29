@@ -1,7 +1,144 @@
-:root{
-    ---primary-color: #4c575e;
-    ---secondary-color: #f3f8f5;
-    ---font-family: 'Arial', sans-serif;
-    ---font-size: 16px;
-    ---line-height: 1.5;
+/* ============================================================
+   base.css
+   Kallos Youth Empowerment
+   Purpose: Design tokens (custom properties) and global
+            element-level styles. No classes here.
+   ============================================================ */
+
+
+/* ─── Design Tokens ───────────────────────────────────────── */
+
+:root {
+
+  /* Color */
+  --color-ink:         #0E0E0E;
+  --color-canvas:      #F7F5F0;
+  --color-earth:       #2B2218;
+  --color-mist:        #E9E6DF;
+  --color-gold:        #C8A45A;
+  --color-gold-light:  #E8D4A0;
+  --color-accent:      #4A6741;   /* olive-green — growth motif */
+  --color-text-muted:  #4A4540;
+  --color-text-faint:  #7A736A;
+
+  /* Typography */
+  --ff-display: 'Cormorant Garamond', Georgia, serif;
+  --ff-body:    'DM Sans', system-ui, sans-serif;
+  --ff-mono:    'DM Mono', 'Courier New', monospace;
+
+  /* Fluid type scale (min → max across 320px–1400px) */
+  --step--1: clamp(0.8rem,   0.76rem + 0.18vw,  0.9rem);
+  --step-0:  clamp(1rem,     0.95rem + 0.24vw,  1.125rem);
+  --step-1:  clamp(1.2rem,   1.1rem  + 0.48vw,  1.5rem);
+  --step-2:  clamp(1.5rem,   1.3rem  + 0.96vw,  2rem);
+  --step-3:  clamp(2rem,     1.6rem  + 1.9vw,   3rem);
+  --step-4:  clamp(2.8rem,   2rem    + 3.8vw,   5rem);
+  --step-5:  clamp(4rem,     2.6rem  + 6.8vw,   8rem);
+
+  /* Spacing */
+  --space-2xs: 0.25rem;
+  --space-xs:  0.5rem;
+  --space-s:   1rem;
+  --space-m:   2rem;
+  --space-l:   4rem;
+  --space-xl:  7rem;
+  --space-2xl: 12rem;
+
+  /* Layout */
+  --max-width:      1100px;
+  --max-width-text: 680px;
+  --nav-height:     72px;
+
+  /* Misc */
+  --radius:     2px;
+  --radius-m:   6px;
+  --transition: 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+  --shadow-s:   0 2px 8px rgba(14, 14, 14, 0.08);
+  --shadow-m:   0 8px 32px rgba(14, 14, 14, 0.12);
+  --shadow-l:   0 20px 60px rgba(14, 14, 14, 0.18);
+}
+
+
+/* ─── Global Element Styles ───────────────────────────────── */
+
+html {
+  font-size: 100%;
+}
+
+body {
+  font-family: var(--ff-body);
+  font-size: var(--step-0);
+  color: var(--color-ink);
+  background-color: var(--color-canvas);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--ff-display);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--color-earth);
+}
+
+h1 { font-size: var(--step-5); }
+h2 { font-size: var(--step-4); }
+h3 { font-size: var(--step-2); }
+h4 { font-size: var(--step-1); }
+h5 { font-size: var(--step-0); }
+h6 { font-size: var(--step--1); }
+
+p {
+  max-width: var(--max-width-text);
+  line-height: 1.8;
+}
+
+em {
+  font-style: italic;
+}
+
+strong {
+  font-weight: 600;
+}
+
+a {
+  transition: color var(--transition);
+}
+
+a:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 3px;
+  border-radius: var(--radius);
+}
+
+button:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 3px;
+  border-radius: var(--radius);
+}
+
+img {
+  border-radius: var(--radius);
+}
+
+/* Skip link — accessibility */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: var(--space-s);
+  background: var(--color-gold);
+  color: var(--color-earth);
+  padding: 0.4rem 1rem;
+  font-size: var(--step--1);
+  font-family: var(--ff-mono);
+  font-weight: 400;
+  border-radius: var(--radius);
+  z-index: 9999;
+  transition: top var(--transition);
+}
+
+.skip-link:focus {
+  top: var(--space-s);
 }

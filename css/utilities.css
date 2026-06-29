@@ -1,0 +1,199 @@
+/* ============================================================
+   utilities.css
+   Kallos Youth Empowerment
+   Purpose: Single-purpose helper classes. These are the
+            last resort — prefer semantic component classes.
+            Never add layout structure here.
+   ============================================================ */
+
+
+/* ─── Text Alignment ──────────────────────────────────────── */
+
+.text-left    { text-align: left; }
+.text-center  { text-align: center; }
+.text-right   { text-align: right; }
+
+
+/* ─── Text Color ──────────────────────────────────────────── */
+
+.text-gold    { color: var(--color-gold); }
+.text-accent  { color: var(--color-accent); }
+.text-muted   { color: var(--color-text-muted); }
+.text-faint   { color: var(--color-text-faint); }
+.text-canvas  { color: var(--color-canvas); }
+.text-earth   { color: var(--color-earth); }
+
+
+/* ─── Background ──────────────────────────────────────────── */
+
+.bg-canvas  { background-color: var(--color-canvas); }
+.bg-mist    { background-color: var(--color-mist); }
+.bg-earth   { background-color: var(--color-earth); }
+.bg-ink     { background-color: var(--color-ink); }
+.bg-gold    { background-color: var(--color-gold); }
+.bg-accent  { background-color: var(--color-accent); }
+
+
+/* ─── Font Family ─────────────────────────────────────────── */
+
+.font-display { font-family: var(--ff-display); }
+.font-body    { font-family: var(--ff-body); }
+.font-mono    { font-family: var(--ff-mono); }
+
+
+/* ─── Font Weight ─────────────────────────────────────────── */
+
+.fw-light    { font-weight: 300; }
+.fw-regular  { font-weight: 400; }
+.fw-medium   { font-weight: 500; }
+.fw-semibold { font-weight: 600; }
+.fw-bold     { font-weight: 700; }
+
+
+/* ─── Font Size ───────────────────────────────────────────── */
+
+.fs--1 { font-size: var(--step--1); }
+.fs-0  { font-size: var(--step-0); }
+.fs-1  { font-size: var(--step-1); }
+.fs-2  { font-size: var(--step-2); }
+.fs-3  { font-size: var(--step-3); }
+.fs-4  { font-size: var(--step-4); }
+.fs-5  { font-size: var(--step-5); }
+
+
+/* ─── Spacing — Margin ────────────────────────────────────── */
+
+.mt-xs  { margin-top: var(--space-xs); }
+.mt-s   { margin-top: var(--space-s); }
+.mt-m   { margin-top: var(--space-m); }
+.mt-l   { margin-top: var(--space-l); }
+.mt-xl  { margin-top: var(--space-xl); }
+.mt-0   { margin-top: 0; }
+
+.mb-xs  { margin-bottom: var(--space-xs); }
+.mb-s   { margin-bottom: var(--space-s); }
+.mb-m   { margin-bottom: var(--space-m); }
+.mb-l   { margin-bottom: var(--space-l); }
+.mb-xl  { margin-bottom: var(--space-xl); }
+.mb-0   { margin-bottom: 0; }
+
+.mx-auto { margin-inline: auto; }
+
+
+/* ─── Spacing — Padding ───────────────────────────────────── */
+
+.pt-xs  { padding-top: var(--space-xs); }
+.pt-s   { padding-top: var(--space-s); }
+.pt-m   { padding-top: var(--space-m); }
+.pt-l   { padding-top: var(--space-l); }
+
+.pb-xs  { padding-bottom: var(--space-xs); }
+.pb-s   { padding-bottom: var(--space-s); }
+.pb-m   { padding-bottom: var(--space-m); }
+.pb-l   { padding-bottom: var(--space-l); }
+
+.px-s   { padding-inline: var(--space-s); }
+.px-m   { padding-inline: var(--space-m); }
+
+.py-s   { padding-block: var(--space-s); }
+.py-m   { padding-block: var(--space-m); }
+.py-l   { padding-block: var(--space-l); }
+.py-xl  { padding-block: var(--space-xl); }
+
+
+/* ─── Display ─────────────────────────────────────────────── */
+
+.d-none           { display: none; }
+.d-block          { display: block; }
+.d-inline         { display: inline; }
+.d-inline-block   { display: inline-block; }
+.d-flex           { display: flex; }
+.d-grid           { display: grid; }
+
+
+/* ─── Visibility ──────────────────────────────────────────── */
+
+/* Hidden but still readable by screen readers */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+
+/* ─── Scroll Reveal ───────────────────────────────────────── */
+/* Triggered by animations.js via IntersectionObserver */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+.reveal-delay-5 { transition-delay: 0.5s; }
+.reveal-delay-6 { transition-delay: 0.6s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+
+/* ─── Border Radius ───────────────────────────────────────── */
+
+.rounded    { border-radius: var(--radius); }
+.rounded-m  { border-radius: var(--radius-m); }
+.rounded-full { border-radius: 999px; }
+
+
+/* ─── Overflow ────────────────────────────────────────────── */
+
+.overflow-hidden { overflow: hidden; }
+
+
+/* ─── Width ───────────────────────────────────────────────── */
+
+.w-full  { width: 100%; }
+.w-auto  { width: auto; }
+.max-w-text { max-width: var(--max-width-text); }
+
+
+/* ─── Position ────────────────────────────────────────────── */
+
+.relative { position: relative; }
+.absolute { position: absolute; }
+
+
+/* ─── Object Fit ──────────────────────────────────────────── */
+
+.object-cover   { object-fit: cover; }
+.object-contain { object-fit: contain; }
+
+
+/* ─── Responsive Visibility ───────────────────────────────── */
+
+@media (max-width: 768px) {
+  .hide-mobile { display: none; }
+}
+
+@media (min-width: 769px) {
+  .hide-desktop { display: none; }
+}

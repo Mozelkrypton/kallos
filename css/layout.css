@@ -1,0 +1,168 @@
+/* ============================================================
+   layout.css
+   Kallos Youth Empowerment
+   Purpose: Structural layout primitives — wrappers, grids,
+            sections. No colours or typography here.
+   ============================================================ */
+
+
+/* ─── Site Wrapper ────────────────────────────────────────── */
+
+.site-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100svh;
+}
+
+.site-wrapper main {
+  flex: 1;
+}
+
+
+/* ─── Container ───────────────────────────────────────────── */
+
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin-inline: auto;
+  padding-inline: var(--space-m);
+}
+
+.container--narrow {
+  max-width: var(--max-width-text);
+}
+
+.container--wide {
+  max-width: 1320px;
+}
+
+
+/* ─── Section ─────────────────────────────────────────────── */
+
+.section {
+  padding-block: var(--space-xl);
+}
+
+.section--flush-top {
+  padding-top: 0;
+}
+
+.section--flush-bottom {
+  padding-bottom: 0;
+}
+
+.section__inner {
+  width: 100%;
+  max-width: var(--max-width);
+  margin-inline: auto;
+  padding-inline: var(--space-m);
+}
+
+
+/* ─── Nav Spacer ──────────────────────────────────────────── */
+/* Pushes content below the fixed nav when needed */
+
+.nav-spacer {
+  height: var(--nav-height);
+}
+
+
+/* ─── Grid Primitives ─────────────────────────────────────── */
+
+.grid {
+  display: grid;
+  gap: var(--space-m);
+}
+
+.grid--2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.grid--3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.grid--4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.grid--auto {
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+/* Asymmetric split — useful for image + copy layouts */
+.grid--60-40 {
+  grid-template-columns: 3fr 2fr;
+}
+
+.grid--40-60 {
+  grid-template-columns: 2fr 3fr;
+}
+
+
+/* ─── Flex Primitives ─────────────────────────────────────── */
+
+.flex {
+  display: flex;
+  gap: var(--space-s);
+}
+
+.flex--center {
+  align-items: center;
+  justify-content: center;
+}
+
+.flex--between {
+  align-items: center;
+  justify-content: space-between;
+}
+
+.flex--wrap {
+  flex-wrap: wrap;
+}
+
+.flex--col {
+  flex-direction: column;
+}
+
+
+/* ─── Responsive Breakdowns ───────────────────────────────── */
+
+@media (max-width: 1024px) {
+  .grid--4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grid--60-40,
+  .grid--40-60 {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding-block: var(--space-l);
+  }
+
+  .grid--3 {
+    grid-template-columns: 1fr;
+  }
+
+  .grid--2 {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .grid--4 {
+    grid-template-columns: 1fr;
+  }
+
+  .section__inner {
+    padding-inline: var(--space-s);
+  }
+
+  .container {
+    padding-inline: var(--space-s);
+  }
+}

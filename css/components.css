@@ -1,0 +1,564 @@
+/* ============================================================
+   components.css
+   Kallos Youth Empowerment
+   Purpose: Reusable UI components — nav, buttons, cards,
+            footer, forms. Each component is self-contained.
+   ============================================================ */
+
+
+/* ─── Nav ─────────────────────────────────────────────────── */
+
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--nav-height);
+  padding-inline: var(--space-m);
+  background: transparent;
+  transition:
+    background var(--transition),
+    backdrop-filter var(--transition),
+    border-color var(--transition);
+}
+
+.nav.scrolled {
+  background: rgba(247, 245, 240, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--color-mist);
+}
+
+/* Logo */
+.nav__logo {
+  font-family: var(--ff-display);
+  font-size: var(--step-2);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--color-canvas);
+  transition: color var(--transition);
+  line-height: 1;
+}
+
+.nav.scrolled .nav__logo {
+  color: var(--color-earth);
+}
+
+.nav__logo-dot {
+  color: var(--color-gold);
+}
+
+/* Links */
+.nav__links {
+  display: flex;
+  align-items: center;
+  gap: var(--space-m);
+}
+
+.nav__links a {
+  font-size: var(--step--1);
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(247, 245, 240, 0.8);
+  transition: color var(--transition);
+}
+
+.nav.scrolled .nav__links a {
+  color: var(--color-ink);
+}
+
+.nav__links a:hover,
+.nav__links a[aria-current="page"] {
+  color: var(--color-gold);
+}
+
+/* CTA button in nav */
+.nav__cta {
+  font-size: var(--step--1);
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.5rem 1.2rem;
+  border: 1px solid var(--color-gold);
+  color: var(--color-gold);
+  border-radius: var(--radius);
+  transition: background var(--transition), color var(--transition);
+}
+
+.nav__cta:hover {
+  background: var(--color-gold);
+  color: var(--color-earth);
+}
+
+/* Hamburger — mobile only */
+.nav__hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  padding: 4px;
+}
+
+.nav__hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--color-canvas);
+  transition: background var(--transition), transform var(--transition), opacity var(--transition);
+}
+
+.nav.scrolled .nav__hamburger span {
+  background: var(--color-ink);
+}
+
+.nav__hamburger[aria-expanded="true"] span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.nav__hamburger[aria-expanded="true"] span:nth-child(2) {
+  opacity: 0;
+}
+.nav__hamburger[aria-expanded="true"] span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Mobile menu drawer */
+.nav__drawer {
+  display: none;
+  position: fixed;
+  inset: var(--nav-height) 0 0 0;
+  background: var(--color-earth);
+  padding: var(--space-l) var(--space-m);
+  flex-direction: column;
+  gap: var(--space-m);
+  z-index: 99;
+}
+
+.nav__drawer.open {
+  display: flex;
+}
+
+.nav__drawer a {
+  font-family: var(--ff-display);
+  font-size: var(--step-3);
+  font-weight: 600;
+  color: var(--color-canvas);
+  transition: color var(--transition);
+}
+
+.nav__drawer a:hover {
+  color: var(--color-gold);
+}
+
+
+/* ─── Buttons ─────────────────────────────────────────────── */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.85rem 2rem;
+  font-family: var(--ff-body);
+  font-size: var(--step--1);
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border-radius: var(--radius);
+  border: 1px solid transparent;
+  transition: background var(--transition), color var(--transition), border-color var(--transition), transform var(--transition);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+/* Gold — primary action */
+.btn--gold {
+  background: var(--color-gold);
+  color: var(--color-earth);
+  border-color: var(--color-gold);
+}
+
+.btn--gold:hover {
+  background: var(--color-gold-light);
+  border-color: var(--color-gold-light);
+}
+
+/* Ghost — secondary action on dark backgrounds */
+.btn--ghost {
+  background: transparent;
+  color: var(--color-canvas);
+  border-color: rgba(247, 245, 240, 0.3);
+}
+
+.btn--ghost:hover {
+  border-color: var(--color-canvas);
+}
+
+/* Canvas — primary action on coloured backgrounds */
+.btn--canvas {
+  background: var(--color-canvas);
+  color: var(--color-accent);
+  border-color: var(--color-canvas);
+}
+
+.btn--canvas:hover {
+  background: var(--color-gold-light);
+  border-color: var(--color-gold-light);
+}
+
+/* Outline — tertiary, light backgrounds */
+.btn--outline {
+  background: transparent;
+  color: var(--color-gold);
+  border-color: var(--color-gold);
+}
+
+.btn--outline:hover {
+  background: var(--color-gold);
+  color: var(--color-earth);
+}
+
+/* Size modifiers */
+.btn--sm {
+  padding: 0.5rem 1.2rem;
+  font-size: calc(var(--step--1) * 0.9);
+}
+
+.btn--lg {
+  padding: 1.1rem 2.6rem;
+  font-size: var(--step-0);
+}
+
+
+/* ─── Section Header ──────────────────────────────────────── */
+
+.section__label {
+  display: block;
+  font-family: var(--ff-mono);
+  font-size: var(--step--1);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: var(--space-s);
+}
+
+.section__heading {
+  font-family: var(--ff-display);
+  font-size: var(--step-4);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--color-earth);
+  margin-bottom: var(--space-m);
+}
+
+.section__heading em {
+  font-style: italic;
+  color: var(--color-accent);
+}
+
+.section__body {
+  font-size: var(--step-0);
+  color: var(--color-text-muted);
+  max-width: 640px;
+  line-height: 1.8;
+}
+
+
+/* ─── Card ────────────────────────────────────────────────── */
+
+.card {
+  background: var(--color-canvas);
+  border: 1px solid var(--color-mist);
+  border-radius: var(--radius-m);
+  padding: var(--space-m);
+  transition: box-shadow var(--transition), transform var(--transition);
+}
+
+.card:hover {
+  box-shadow: var(--shadow-m);
+  transform: translateY(-3px);
+}
+
+.card__tag {
+  font-family: var(--ff-mono);
+  font-size: var(--step--1);
+  letter-spacing: 0.1em;
+  color: var(--color-gold);
+  margin-bottom: var(--space-xs);
+}
+
+.card__title {
+  font-family: var(--ff-display);
+  font-size: var(--step-2);
+  font-weight: 600;
+  color: var(--color-earth);
+  margin-bottom: var(--space-xs);
+}
+
+.card__body {
+  font-size: var(--step--1);
+  color: var(--color-text-muted);
+  line-height: 1.7;
+}
+
+
+/* ─── Verse Band ──────────────────────────────────────────── */
+
+.verse-band {
+  background: var(--color-gold);
+  padding: var(--space-m);
+  text-align: center;
+}
+
+.verse-band__text {
+  font-family: var(--ff-display);
+  font-size: var(--step-2);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--color-earth);
+  max-width: 800px;
+  margin-inline: auto;
+  line-height: 1.5;
+}
+
+.verse-band__ref {
+  display: block;
+  font-family: var(--ff-mono);
+  font-size: var(--step--1);
+  font-style: normal;
+  letter-spacing: 0.1em;
+  margin-top: 0.6rem;
+  opacity: 0.65;
+}
+
+
+/* ─── Stat ────────────────────────────────────────────────── */
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.stat__number {
+  font-family: var(--ff-display);
+  font-size: var(--step-4);
+  font-weight: 700;
+  color: var(--color-earth);
+  line-height: 1;
+}
+
+.stat__label {
+  font-size: var(--step--1);
+  color: var(--color-text-faint);
+  letter-spacing: 0.04em;
+}
+
+
+/* ─── Divider ─────────────────────────────────────────────── */
+
+.divider {
+  border: none;
+  border-top: 1px solid var(--color-mist);
+  margin-block: var(--space-m);
+}
+
+.divider--gold {
+  border-color: var(--color-gold);
+  opacity: 0.3;
+}
+
+
+/* ─── Tag / Pill ──────────────────────────────────────────── */
+
+.tag {
+  display: inline-block;
+  font-family: var(--ff-mono);
+  font-size: var(--step--1);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.7rem;
+  border-radius: 999px;
+  background: var(--color-mist);
+  color: var(--color-text-muted);
+}
+
+.tag--gold {
+  background: rgba(200, 164, 90, 0.15);
+  color: var(--color-gold);
+}
+
+.tag--accent {
+  background: rgba(74, 103, 65, 0.12);
+  color: var(--color-accent);
+}
+
+
+/* ─── Footer ──────────────────────────────────────────────── */
+
+.footer {
+  background: var(--color-ink);
+  color: rgba(247, 245, 240, 0.55);
+  padding-top: var(--space-l);
+}
+
+.footer__inner {
+  max-width: var(--max-width);
+  margin-inline: auto;
+  padding-inline: var(--space-m);
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: var(--space-l);
+  padding-bottom: var(--space-l);
+  border-bottom: 1px solid rgba(247, 245, 240, 0.08);
+}
+
+.footer__logo {
+  font-family: var(--ff-display);
+  font-size: var(--step-2);
+  font-weight: 700;
+  color: var(--color-canvas);
+  margin-bottom: var(--space-s);
+  line-height: 1;
+}
+
+.footer__logo span {
+  color: var(--color-gold);
+}
+
+.footer__tagline {
+  font-size: var(--step--1);
+  line-height: 1.7;
+  max-width: 240px;
+  color: rgba(247, 245, 240, 0.5);
+}
+
+.footer__col h4 {
+  font-family: var(--ff-mono);
+  font-size: var(--step--1);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: var(--space-s);
+}
+
+.footer__col ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.footer__col a {
+  font-size: var(--step--1);
+  color: rgba(247, 245, 240, 0.5);
+  transition: color var(--transition);
+}
+
+.footer__col a:hover {
+  color: var(--color-canvas);
+}
+
+.footer__bottom {
+  max-width: var(--max-width);
+  margin-inline: auto;
+  padding: var(--space-m) var(--space-m);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: var(--step--1);
+  font-family: var(--ff-mono);
+  color: rgba(247, 245, 240, 0.3);
+}
+
+.footer__verse {
+  font-family: var(--ff-display);
+  font-style: italic;
+  font-size: var(--step-0);
+}
+
+
+/* ─── Form Elements ───────────────────────────────────────── */
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.form-label {
+  font-size: var(--step--1);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--color-earth);
+}
+
+.form-input,
+.form-textarea,
+.form-select {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-family: var(--ff-body);
+  font-size: var(--step-0);
+  color: var(--color-ink);
+  background: var(--color-canvas);
+  border: 1px solid var(--color-mist);
+  border-radius: var(--radius);
+  transition: border-color var(--transition), box-shadow var(--transition);
+  appearance: none;
+}
+
+.form-input:focus,
+.form-textarea:focus,
+.form-select:focus {
+  outline: none;
+  border-color: var(--color-gold);
+  box-shadow: 0 0 0 3px rgba(200, 164, 90, 0.15);
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 140px;
+}
+
+
+/* ─── Nav Responsive ──────────────────────────────────────── */
+
+@media (max-width: 768px) {
+  .nav__links,
+  .nav__cta {
+    display: none;
+  }
+
+  .nav__hamburger {
+    display: flex;
+  }
+}
+
+
+/* ─── Footer Responsive ───────────────────────────────────── */
+
+@media (max-width: 900px) {
+  .footer__inner {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .footer__inner {
+    grid-template-columns: 1fr;
+  }
+
+  .footer__bottom {
+    flex-direction: column;
+    gap: var(--space-s);
+    text-align: center;
+  }
+}

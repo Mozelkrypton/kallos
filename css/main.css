@@ -1,15 +1,210 @@
-.header{
+/* ============================================================
+   main.css
+   Kallos Youth Empowerment
+   Purpose: Site-wide styles that don't belong to a single
+            component — global animations, selection styles,
+            scrollbar, and cross-cutting overrides.
+            Import order: reset → base → layout → components
+            → utilities → main → pages/[page].css
+   ============================================================ */
 
+
+/* ─── Text Selection ──────────────────────────────────────── */
+
+::selection {
+  background: var(--color-gold);
+  color: var(--color-earth);
 }
-.navbar{
-    background-color: var(---primary-color);
-    color: var(---secondary-color);
-    font-family: var(---font-family);
-    font-size: var(---font-size);
-    line-height: var(---line-height);
-}   
-.header .navbar a{
-    color: var(---secondary-color);
-    text-decoration: none;
-    padding: 10px;
-}   
+
+::-moz-selection {
+  background: var(--color-gold);
+  color: var(--color-earth);
+}
+
+
+/* ─── Scrollbar (Webkit) ──────────────────────────────────── */
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-mist);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-gold);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-earth);
+}
+
+
+/* ─── Keyframes ───────────────────────────────────────────── */
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scrollPulse {
+  0%, 100% { opacity: 0.4; }
+  50%       { opacity: 1; }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -400px 0; }
+  100% { background-position: 400px 0; }
+}
+
+
+/* ─── Loading Skeleton ────────────────────────────────────── */
+
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--color-mist) 25%,
+    var(--color-canvas) 50%,
+    var(--color-mist) 75%
+  );
+  background-size: 800px 100%;
+  animation: shimmer 1.4s infinite linear;
+  border-radius: var(--radius);
+}
+
+
+/* ─── Smooth Page Transitions ─────────────────────────────── */
+
+.page-enter {
+  animation: fadeIn 0.4s ease forwards;
+}
+
+
+/* ─── Image Lazy Load ─────────────────────────────────────── */
+
+img[loading="lazy"] {
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+img[loading="lazy"].loaded {
+  opacity: 1;
+}
+
+
+/* ─── Focus Ring — Global ─────────────────────────────────── */
+
+:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 3px;
+  border-radius: var(--radius);
+}
+
+
+/* ─── Horizontal Rule ─────────────────────────────────────── */
+
+hr {
+  border: none;
+  border-top: 1px solid var(--color-mist);
+}
+
+
+/* ─── Prose (long-form text blocks) ──────────────────────── */
+
+.prose {
+  font-size: var(--step-0);
+  line-height: 1.8;
+  color: var(--color-text-muted);
+  max-width: var(--max-width-text);
+}
+
+.prose h2,
+.prose h3 {
+  margin-top: var(--space-l);
+  margin-bottom: var(--space-s);
+}
+
+.prose p + p {
+  margin-top: var(--space-s);
+}
+
+.prose ul,
+.prose ol {
+  list-style: revert;
+  padding-left: var(--space-m);
+  margin-block: var(--space-s);
+}
+
+.prose li {
+  margin-bottom: 0.4rem;
+  line-height: 1.7;
+}
+
+.prose a {
+  color: var(--color-gold);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.prose a:hover {
+  color: var(--color-earth);
+}
+
+.prose blockquote {
+  border-left: 3px solid var(--color-gold);
+  padding-left: var(--space-m);
+  margin-block: var(--space-m);
+  font-family: var(--ff-display);
+  font-style: italic;
+  font-size: var(--step-1);
+  color: var(--color-earth);
+}
+
+
+/* ─── Print Styles ────────────────────────────────────────── */
+
+@media print {
+  .nav,
+  .nav__hamburger,
+  .hero__scroll,
+  .cta-band,
+  .footer {
+    display: none;
+  }
+
+  body {
+    background: white;
+    color: black;
+    font-size: 12pt;
+  }
+
+  a::after {
+    content: " (" attr(href) ")";
+    font-size: 10pt;
+    color: #555;
+  }
+}
