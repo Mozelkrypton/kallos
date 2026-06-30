@@ -1,0 +1,215 @@
+/* ============================================================
+   css/pages/programs.css
+   Kallos Youth Empowerment — Programs page only
+   ============================================================ */
+
+
+/* ─── Page Hero (shared pattern) ──────────────────────────── */
+
+.page-hero {
+  position: relative;
+  padding: calc(var(--nav-height) + var(--space-xl)) var(--space-m) var(--space-xl);
+  background: var(--color-earth);
+  overflow: hidden;
+}
+
+.page-hero__inner {
+  position: relative;
+  z-index: 2;
+  max-width: 760px;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.page-hero__eyebrow {
+  display: inline-block;
+  font-family: var(--ff-mono);
+  font-size: var(--step--1);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: var(--space-m);
+}
+
+.page-hero__heading {
+  font-family: var(--ff-display);
+  font-size: var(--step-4);
+  font-weight: 700;
+  line-height: 1.05;
+  color: var(--color-canvas);
+  margin-bottom: var(--space-m);
+}
+
+.page-hero__heading em {
+  font-style: italic;
+  color: var(--color-gold);
+}
+
+.page-hero__sub {
+  font-size: var(--step-0);
+  color: rgba(247, 245, 240, 0.65);
+  line-height: 1.7;
+}
+
+.page-hero__slash {
+  position: absolute;
+  top: -10%;
+  right: -8%;
+  width: 36vw;
+  height: 130%;
+  background: linear-gradient(180deg, var(--color-gold) 0%, transparent 80%);
+  opacity: 0.08;
+  transform: rotate(-12deg);
+  pointer-events: none;
+}
+
+
+/* ─── Program Blocks ──────────────────────────────────────── */
+
+.program-block {
+  background: var(--color-canvas);
+}
+
+.program-block--alt {
+  background: var(--color-mist);
+}
+
+.program-block__grid {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: var(--space-l);
+  align-items: center;
+}
+
+.program-block__grid--reverse {
+  grid-template-columns: 2fr 3fr;
+}
+
+.program-block__tag {
+  display: inline-block;
+  font-family: var(--ff-mono);
+  font-size: var(--step--1);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: var(--space-s);
+}
+
+.program-block__list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-top: var(--space-m);
+  padding-left: var(--space-m);
+}
+
+.program-block__list li {
+  position: relative;
+  font-size: var(--step--1);
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+.program-block__list li::before {
+  content: '—';
+  position: absolute;
+  left: calc(-1 * var(--space-m));
+  color: var(--color-gold);
+}
+
+.program-block__note {
+  margin-top: var(--space-m);
+  padding: var(--space-s) var(--space-m);
+  font-size: var(--step--1);
+  font-style: italic;
+  color: var(--color-text-faint);
+  border-left: 2px solid var(--color-gold);
+}
+
+.program-block__visual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 280px;
+  background: var(--color-earth);
+  border-radius: var(--radius-m);
+}
+
+.program-block__icon {
+  font-size: 4rem;
+  color: var(--color-gold);
+  opacity: 0.85;
+}
+
+
+/* ─── Program Quality ─────────────────────────────────────── */
+
+.program-quality {
+  background: var(--color-earth);
+}
+
+.program-quality .section__heading {
+  color: var(--color-canvas);
+}
+
+.program-quality__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-s);
+  margin-top: var(--space-l);
+}
+
+.quality-card {
+  padding: var(--space-m);
+  border: 1px solid rgba(200, 164, 90, 0.15);
+  border-radius: var(--radius);
+  transition: border-color var(--transition), background var(--transition);
+}
+
+.quality-card:hover {
+  border-color: rgba(200, 164, 90, 0.4);
+  background: rgba(200, 164, 90, 0.04);
+}
+
+.quality-card__title {
+  font-family: var(--ff-display);
+  font-size: var(--step-1);
+  font-weight: 600;
+  color: var(--color-canvas);
+  margin-bottom: var(--space-xs);
+}
+
+.quality-card__desc {
+  font-size: var(--step--1);
+  color: rgba(247, 245, 240, 0.55);
+  line-height: 1.6;
+}
+
+
+/* ─── Responsive ──────────────────────────────────────────── */
+
+@media (max-width: 900px) {
+  .program-block__grid,
+  .program-block__grid--reverse {
+    grid-template-columns: 1fr;
+  }
+
+  .program-block__visual {
+    order: -1;
+    height: 200px;
+  }
+
+  .program-quality__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .program-quality__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .page-hero__heading {
+    font-size: var(--step-3);
+  }
+}

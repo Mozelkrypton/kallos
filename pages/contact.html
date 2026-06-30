@@ -3,12 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Contact Kallos Youth Empowerment — reach out to connect, ask questions, or find out how to get involved." />
+  <meta name="description" content="Contact Kallos Youth Empowerment — reach out with questions, partnership inquiries, or to connect with our team." />
   <title>Contact — Kallos Youth Empowerment</title>
+
   <link rel="icon" type="image/png" href="../images/icons/favicon1.png" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400&display=swap" rel="stylesheet" />
+
   <link rel="stylesheet" href="../css/reset.css" />
   <link rel="stylesheet" href="../css/base.css" />
   <link rel="stylesheet" href="../css/layout.css" />
@@ -38,138 +41,90 @@
 
   <main id="main">
 
-    <!-- Page Hero -->
-    <section class="page-hero" aria-label="Contact KYE">
+    <!-- ─── Page Hero ─────────────────────────────────── -->
+    <section class="page-hero page-hero--compact" aria-label="Contact">
       <div class="page-hero__inner">
-        <span class="page-hero__eyebrow">Reach Out</span>
+        <span class="page-hero__eyebrow">Get In Touch</span>
         <h1 class="page-hero__heading">
-          Let's start a<br /><em>conversation</em>
+          Let's <em>connect.</em>
         </h1>
         <p class="page-hero__sub">
-          Whether you're a young person looking to connect, a church wanting to partner,
-          or an organization seeking to collaborate — we'd love to hear from you.
+          Whether you have a question, want to partner, or simply want to
+          learn more — we'd love to hear from you.
         </p>
       </div>
       <div class="page-hero__slash" aria-hidden="true"></div>
     </section>
 
-    <!-- Contact Grid -->
+    <!-- ─── Contact Form & Info ───────────────────────── -->
     <section class="section contact-main" aria-labelledby="contact-heading">
       <div class="section__inner">
         <div class="contact__grid">
 
           <!-- Form -->
           <div class="contact__form-wrap reveal">
-            <p class="section__label">Send a Message</p>
-            <h2 class="section__heading" id="contact-heading">Get in touch</h2>
-            <form class="contact__form" id="contactForm" novalidate>
-              <div class="form-row">
-                <div class="form-group">
-                  <label class="form-label" for="firstName">First Name</label>
-                  <input class="form-input" type="text" id="firstName" name="firstName" placeholder="Jane" required />
-                </div>
-                <div class="form-group">
-                  <label class="form-label" for="lastName">Last Name</label>
-                  <input class="form-input" type="text" id="lastName" name="lastName" placeholder="Doe" required />
-                </div>
-              </div>
+            <h2 class="section__heading" id="contact-heading">Send a message</h2>
+            <form class="contact-form" action="#" method="POST">
               <div class="form-group">
-                <label class="form-label" for="email">Email Address</label>
-                <input class="form-input" type="email" id="email" name="email" placeholder="jane@example.com" required />
+                <label class="form-label" for="name">Full name</label>
+                <input class="form-input" type="text" id="name" name="name" required />
               </div>
+
               <div class="form-group">
-                <label class="form-label" for="subject">Subject</label>
-                <select class="form-select" id="subject" name="subject" required>
-                  <option value="" disabled selected>Select a topic</option>
-                  <option value="membership">Membership Enquiry</option>
-                  <option value="partnership">Church / Organization Partnership</option>
+                <label class="form-label" for="email">Email address</label>
+                <input class="form-input" type="email" id="email" name="email" required />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="reason">Reason for contact</label>
+                <select class="form-select" id="reason" name="reason">
+                  <option value="general">General inquiry</option>
+                  <option value="partnership">Partnership / Church / NGO</option>
                   <option value="volunteer">Volunteering</option>
-                  <option value="donation">Donation / Funding</option>
-                  <option value="media">Media &amp; Press</option>
+                  <option value="media">Media / Press</option>
                   <option value="other">Other</option>
                 </select>
               </div>
+
               <div class="form-group">
                 <label class="form-label" for="message">Message</label>
-                <textarea class="form-textarea" id="message" name="message" placeholder="Tell us what's on your heart..." required></textarea>
+                <textarea class="form-textarea" id="message" name="message" required></textarea>
               </div>
-              <button type="submit" class="btn btn--gold contact__submit">Send Message</button>
-              <p class="contact__form-note">
-                Your data is handled per our privacy commitment (Article 15).
-                We will never share your information without consent.
-              </p>
+
+              <button type="submit" class="btn btn--gold w-full">Send Message</button>
             </form>
           </div>
 
           <!-- Info -->
-          <div class="contact__info reveal reveal-delay-2">
-            <p class="section__label">Find Us</p>
-            <h2 class="section__heading">Connect directly</h2>
-
-            <div class="contact__info-items">
-              <div class="contact__info-item">
-                <span class="contact__info-icon" aria-hidden="true">✦</span>
-                <div>
-                  <h3 class="contact__info-title">Location</h3>
-                  <p class="contact__info-desc">Nairobi, Kenya<br />
-                  <span class="text-faint">(Registered address to be confirmed on incorporation)</span></p>
-                </div>
-              </div>
-              <div class="contact__info-item">
-                <span class="contact__info-icon" aria-hidden="true">✦</span>
-                <div>
-                  <h3 class="contact__info-title">Email</h3>
-                  <p class="contact__info-desc">
-                    <a href="mailto:hello@kallosyouth.org">hello@kallosyouth.org</a>
-                  </p>
-                </div>
-              </div>
-              <div class="contact__info-item">
-                <span class="contact__info-icon" aria-hidden="true">✦</span>
-                <div>
-                  <h3 class="contact__info-title">WhatsApp Community</h3>
-                  <p class="contact__info-desc">
-                    <a href="#">Join our WhatsApp group →</a>
-                  </p>
-                </div>
-              </div>
-              <div class="contact__info-item">
-                <span class="contact__info-icon" aria-hidden="true">✦</span>
-                <div>
-                  <h3 class="contact__info-title">Social Media</h3>
-                  <div class="contact__socials">
-                    <a href="#" class="contact__social-link">Instagram</a>
-                    <a href="#" class="contact__social-link">YouTube</a>
-                    <a href="#" class="contact__social-link">TikTok</a>
-                  </div>
-                </div>
-              </div>
+          <aside class="contact__info reveal reveal-delay-2">
+            <div class="contact-info-card">
+              <h3 class="contact-info-card__title">Registered Office</h3>
+              <p class="contact-info-card__desc">Article 2.1 — Address details to be confirmed upon registration.</p>
             </div>
-
-            <!-- Spokesperson note — Article 14 -->
-            <div class="contact__spokesperson">
-              <p class="font-mono fs--1 text-faint">
-                Per Article 14 of the KYE Charter, the Director serves as
-                primary spokesperson. Media enquiries are handled by the
-                Media &amp; Communications department.
+            <div class="contact-info-card">
+              <h3 class="contact-info-card__title">Email</h3>
+              <p class="contact-info-card__desc">hello@kallosye.org</p>
+            </div>
+            <div class="contact-info-card">
+              <h3 class="contact-info-card__title">Spokespersons</h3>
+              <p class="contact-info-card__desc">
+                Per Article 14.3, official statements are issued by the
+                Director, Board Chair, or delegated leaders.
               </p>
             </div>
-          </div>
+            <div class="contact-info-card">
+              <h3 class="contact-info-card__title">Safeguarding Concerns</h3>
+              <p class="contact-info-card__desc">
+                If you need to raise a safeguarding or grievance matter, this
+                is handled through a confidential channel per Article 11.4.
+                Please mark your message "Confidential."
+              </p>
+            </div>
+          </aside>
 
         </div>
       </div>
     </section>
-
-    <!-- CTA Band -->
-    <div class="cta-band" role="complementary">
-      <div class="section__inner cta-band__inner">
-        <h2 class="cta-band__heading reveal">Ready to join Kallos?</h2>
-        <p class="cta-band__sub reveal reveal-delay-1">
-          Take the next step — explore how you can be part of the movement.
-        </p>
-        <a href="get-involved.html" class="btn btn--canvas reveal reveal-delay-2">Get Involved</a>
-      </div>
-    </div>
 
   </main>
 
@@ -177,7 +132,10 @@
     <div class="footer__inner">
       <div class="footer__brand">
         <p class="footer__logo">Kallos<span>.</span></p>
-        <p class="footer__tagline">Raising a generation of Christ-centered, purpose-driven young people who transform society.</p>
+        <p class="footer__tagline">
+          Raising a generation of Christ-centered, purpose-driven young people
+          who transform society.
+        </p>
       </div>
       <nav class="footer__col" aria-label="Organization">
         <h4>Organization</h4>

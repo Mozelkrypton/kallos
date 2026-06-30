@@ -1,0 +1,478 @@
+/* ============================================================
+   css/pages/about.css
+   Kallos Youth Empowerment — About page only
+   Assumes reset → base → layout → components → utilities →
+   main are already loaded.
+   ============================================================ */
+
+
+/* ─── Page Hero (shared pattern across inner pages) ──────── */
+
+.page-hero {
+  position: relative;
+  padding: calc(var(--nav-height) + var(--space-xl)) var(--space-m) var(--space-xl);
+  background: var(--color-earth);
+  overflow: hidden;
+}
+
+.page-hero__inner {
+  position: relative;
+  z-index: 2;
+  max-width: 760px;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.page-hero__eyebrow {
+  display: inline-block;
+  font-family: var(--ff-mono);
+  font-size: var(--step--1);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: var(--space-m);
+}
+
+.page-hero__heading {
+  font-family: var(--ff-display);
+  font-size: var(--step-4);
+  font-weight: 700;
+  line-height: 1.05;
+  color: var(--color-canvas);
+  margin-bottom: var(--space-m);
+}
+
+.page-hero__heading em {
+  font-style: italic;
+  color: var(--color-gold);
+}
+
+.page-hero__sub {
+  font-size: var(--step-0);
+  color: rgba(247, 245, 240, 0.65);
+  line-height: 1.7;
+}
+
+.page-hero__slash {
+  position: absolute;
+  top: -10%;
+  right: -8%;
+  width: 36vw;
+  height: 130%;
+  background: linear-gradient(180deg, var(--color-gold) 0%, transparent 80%);
+  opacity: 0.08;
+  transform: rotate(-12deg);
+  pointer-events: none;
+}
+
+
+/* ─── Vision & Mission ────────────────────────────────────── */
+
+.about-vm {
+  background: var(--color-canvas);
+}
+
+.vm__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-l);
+}
+
+.vm__heading {
+  font-family: var(--ff-display);
+  font-size: var(--step-3);
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--color-earth);
+}
+
+.vm__heading em {
+  font-style: italic;
+  color: var(--color-accent);
+}
+
+.vm__mission {
+  font-size: var(--step-1);
+  line-height: 1.8;
+  color: var(--color-text-muted);
+}
+
+
+/* ─── Philosophy ──────────────────────────────────────────── */
+
+.about-philosophy {
+  background: var(--color-mist);
+}
+
+.philosophy__inner {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: var(--space-l);
+  align-items: center;
+}
+
+.philosophy__verse {
+  background: var(--color-earth);
+  padding: var(--space-l);
+  border-radius: var(--radius-m);
+}
+
+.philosophy__quote {
+  font-family: var(--ff-display);
+  font-style: italic;
+  font-size: var(--step-2);
+  line-height: 1.5;
+  color: var(--color-canvas);
+}
+
+.philosophy__quote cite {
+  display: block;
+  font-family: var(--ff-mono);
+  font-style: normal;
+  font-size: var(--step--1);
+  letter-spacing: 0.1em;
+  color: var(--color-gold);
+  margin-top: var(--space-s);
+}
+
+
+/* ─── Values (about-page variant) ─────────────────────────── */
+
+.about-values {
+  background: var(--color-canvas);
+}
+
+.about-values__list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-m);
+  margin-top: var(--space-l);
+}
+
+.about-value {
+  display: flex;
+  gap: var(--space-s);
+  align-items: flex-start;
+  padding: var(--space-m);
+  background: var(--color-mist);
+  border-radius: var(--radius-m);
+  transition: background var(--transition);
+}
+
+.about-value:hover {
+  background: var(--color-gold-light);
+}
+
+.about-value__letter {
+  font-family: var(--ff-display);
+  font-size: var(--step-3);
+  font-weight: 700;
+  color: var(--color-gold);
+  line-height: 1;
+  opacity: 0.6;
+  flex-shrink: 0;
+}
+
+.about-value__title {
+  font-family: var(--ff-display);
+  font-size: var(--step-1);
+  font-weight: 600;
+  color: var(--color-earth);
+  margin-bottom: 0.3rem;
+}
+
+.about-value__desc {
+  font-size: var(--step--1);
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+
+/* ─── Governance ──────────────────────────────────────────── */
+
+.about-governance {
+  background: var(--color-mist);
+}
+
+.governance__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-m);
+  margin-top: var(--space-l);
+}
+
+.governance-card {
+  background: var(--color-canvas);
+  border: 1px solid #D8D4CC;
+  border-radius: var(--radius-m);
+  padding: var(--space-m);
+}
+
+.governance-card__tag {
+  font-family: var(--ff-mono);
+  font-size: var(--step--1);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+}
+
+.governance-card__title {
+  font-family: var(--ff-display);
+  font-size: var(--step-2);
+  font-weight: 600;
+  color: var(--color-earth);
+  margin-block: var(--space-xs) var(--space-s);
+}
+
+.governance-card__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-s);
+}
+
+.governance-card__list li {
+  font-size: var(--step--1);
+  line-height: 1.6;
+  color: var(--color-text-muted);
+  list-style: none;
+}
+
+.governance-card__list strong {
+  color: var(--color-earth);
+  font-weight: 600;
+}
+
+
+/* ─── Leadership Levels ───────────────────────────────────── */
+
+.about-team {
+  background: var(--color-canvas);
+}
+
+.team__levels {
+  display: flex;
+  flex-direction: column;
+  margin-top: var(--space-l);
+  border-top: 1px solid var(--color-mist);
+}
+
+.team__level {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-m);
+  padding-block: var(--space-m);
+  border-bottom: 1px solid var(--color-mist);
+}
+
+.team__level-number {
+  font-family: var(--ff-mono);
+  font-size: var(--step-1);
+  color: var(--color-gold);
+  flex-shrink: 0;
+  width: 3ch;
+}
+
+.team__level-title {
+  font-family: var(--ff-display);
+  font-size: var(--step-1);
+  font-weight: 600;
+  color: var(--color-earth);
+  margin-bottom: 0.2rem;
+}
+
+.team__level-desc {
+  font-size: var(--step--1);
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+
+/* ─── Departments ─────────────────────────────────────────── */
+
+.about-departments {
+  background: var(--color-earth);
+}
+
+.about-departments .section__heading {
+  color: var(--color-canvas);
+}
+
+.about-departments .section__heading em {
+  color: var(--color-gold);
+}
+
+.departments__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-s);
+  margin-top: var(--space-l);
+}
+
+.department {
+  padding: var(--space-m);
+  border: 1px solid rgba(200, 164, 90, 0.15);
+  border-radius: var(--radius);
+  transition: border-color var(--transition), background var(--transition);
+}
+
+.department:hover {
+  border-color: rgba(200, 164, 90, 0.4);
+  background: rgba(200, 164, 90, 0.04);
+}
+
+.department__num {
+  display: block;
+  font-family: var(--ff-mono);
+  font-size: var(--step--1);
+  color: var(--color-gold);
+  margin-bottom: var(--space-xs);
+}
+
+.department__title {
+  font-family: var(--ff-display);
+  font-size: var(--step-1);
+  font-weight: 600;
+  color: var(--color-canvas);
+  margin-bottom: 0.3rem;
+}
+
+.department__desc {
+  font-size: var(--step--1);
+  color: rgba(247, 245, 240, 0.55);
+  line-height: 1.6;
+}
+
+
+/* ─── Safeguarding ────────────────────────────────────────── */
+
+.about-safeguarding {
+  background: var(--color-accent);
+}
+
+.about-safeguarding .section__label {
+  color: rgba(247, 245, 240, 0.7);
+}
+
+.about-safeguarding .section__heading {
+  color: var(--color-canvas);
+}
+
+.about-safeguarding .section__heading em {
+  color: var(--color-gold-light);
+}
+
+.about-safeguarding .section__body {
+  color: rgba(247, 245, 240, 0.75);
+  max-width: 100%;
+}
+
+.safeguarding__inner {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: var(--space-l);
+  align-items: start;
+}
+
+.safeguarding__pillars {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-m);
+}
+
+.safeguarding__item {
+  display: flex;
+  gap: var(--space-s);
+  align-items: flex-start;
+}
+
+.safeguarding__icon {
+  color: var(--color-gold-light);
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.safeguarding__title {
+  font-family: var(--ff-display);
+  font-size: var(--step-0);
+  font-weight: 600;
+  color: var(--color-canvas);
+  margin-bottom: 0.2rem;
+}
+
+.safeguarding__desc {
+  font-size: var(--step--1);
+  color: rgba(247, 245, 240, 0.7);
+  line-height: 1.6;
+}
+
+
+/* ─── Transparency ────────────────────────────────────────── */
+
+.about-transparency {
+  background: var(--color-canvas);
+}
+
+.transparency__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-m);
+  margin-top: var(--space-l);
+}
+
+.transparency__item {
+  padding: var(--space-m);
+  border-left: 3px solid var(--color-gold);
+  background: var(--color-mist);
+  border-radius: 0 var(--radius-m) var(--radius-m) 0;
+}
+
+.transparency__title {
+  font-family: var(--ff-display);
+  font-size: var(--step-1);
+  font-weight: 600;
+  color: var(--color-earth);
+  margin-bottom: var(--space-xs);
+}
+
+.transparency__desc {
+  font-size: var(--step--1);
+  color: var(--color-text-muted);
+  line-height: 1.7;
+}
+
+
+/* ─── Responsive ──────────────────────────────────────────── */
+
+@media (max-width: 1024px) {
+  .departments__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .safeguarding__inner {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 900px) {
+  .vm__grid,
+  .philosophy__inner,
+  .governance__grid,
+  .transparency__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-values__list {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .departments__grid,
+  .safeguarding__pillars {
+    grid-template-columns: 1fr;
+  }
+
+  .page-hero__heading {
+    font-size: var(--step-3);
+  }
+}

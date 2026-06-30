@@ -1,0 +1,283 @@
+/* ============================================================
+   css/pages/get-involved.css
+   Kallos Youth Empowerment — Get Involved page only
+   ============================================================ */
+
+
+/* ─── Page Hero (shared pattern) ──────────────────────────── */
+
+.page-hero {
+  position: relative;
+  padding: calc(var(--nav-height) + var(--space-xl)) var(--space-m) var(--space-xl);
+  background: var(--color-earth);
+  overflow: hidden;
+}
+
+.page-hero__inner {
+  position: relative;
+  z-index: 2;
+  max-width: 760px;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.page-hero__eyebrow {
+  display: inline-block;
+  font-family: var(--ff-mono);
+  font-size: var(--step--1);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: var(--space-m);
+}
+
+.page-hero__heading {
+  font-family: var(--ff-display);
+  font-size: var(--step-4);
+  font-weight: 700;
+  line-height: 1.05;
+  color: var(--color-canvas);
+  margin-bottom: var(--space-m);
+}
+
+.page-hero__heading em {
+  font-style: italic;
+  color: var(--color-gold);
+}
+
+.page-hero__sub {
+  font-size: var(--step-0);
+  color: rgba(247, 245, 240, 0.65);
+  line-height: 1.7;
+}
+
+.page-hero__slash {
+  position: absolute;
+  top: -10%;
+  right: -8%;
+  width: 36vw;
+  height: 130%;
+  background: linear-gradient(180deg, var(--color-gold) 0%, transparent 80%);
+  opacity: 0.08;
+  transform: rotate(-12deg);
+  pointer-events: none;
+}
+
+
+/* ─── Tracks ──────────────────────────────────────────────── */
+
+.tracks {
+  background: var(--color-canvas);
+}
+
+.tracks__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-m);
+  margin-top: var(--space-l);
+  align-items: stretch;
+}
+
+.track-card {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-m);
+  background: var(--color-mist);
+  border-radius: var(--radius-m);
+  border: 1px solid transparent;
+  transition: border-color var(--transition), transform var(--transition);
+}
+
+.track-card:hover {
+  transform: translateY(-4px);
+}
+
+.track-card--featured {
+  background: var(--color-earth);
+  border-color: var(--color-gold);
+}
+
+.track-card--featured .track-card__tag {
+  color: var(--color-gold-light);
+}
+
+.track-card--featured .track-card__title {
+  color: var(--color-canvas);
+}
+
+.track-card--featured .track-card__desc {
+  color: rgba(247, 245, 240, 0.65);
+}
+
+.track-card--featured .track-card__list li {
+  color: rgba(247, 245, 240, 0.7);
+}
+
+.track-card--featured .track-card__list li::before {
+  color: var(--color-gold-light);
+}
+
+.track-card__tag {
+  font-family: var(--ff-mono);
+  font-size: var(--step--1);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: var(--space-s);
+}
+
+.track-card__title {
+  font-family: var(--ff-display);
+  font-size: var(--step-2);
+  font-weight: 600;
+  color: var(--color-earth);
+  margin-bottom: var(--space-xs);
+}
+
+.track-card__desc {
+  font-size: var(--step--1);
+  color: var(--color-text-muted);
+  line-height: 1.6;
+  margin-bottom: var(--space-s);
+}
+
+.track-card__list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: var(--space-m);
+  flex: 1;
+}
+
+.track-card__list li {
+  position: relative;
+  padding-left: var(--space-m);
+  font-size: var(--step--1);
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}
+
+.track-card__list li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--color-gold);
+}
+
+
+/* ─── Onboarding Steps ────────────────────────────────────── */
+
+.onboarding {
+  background: var(--color-mist);
+}
+
+.onboarding__steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-s);
+  margin-top: var(--space-l);
+}
+
+.onboarding-step {
+  padding: var(--space-m);
+  background: var(--color-canvas);
+  border-radius: var(--radius-m);
+  text-align: center;
+}
+
+.onboarding-step__num {
+  display: block;
+  font-family: var(--ff-display);
+  font-size: var(--step-3);
+  font-weight: 700;
+  color: var(--color-gold);
+  opacity: 0.6;
+  margin-bottom: var(--space-xs);
+}
+
+.onboarding-step__title {
+  font-family: var(--ff-display);
+  font-size: var(--step-0);
+  font-weight: 600;
+  color: var(--color-earth);
+  margin-bottom: 0.3rem;
+}
+
+.onboarding-step__desc {
+  font-size: var(--step--1);
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}
+
+
+/* ─── Application Form ────────────────────────────────────── */
+
+.apply {
+  background: var(--color-canvas);
+}
+
+.apply__inner {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: var(--space-l);
+  align-items: start;
+}
+
+.apply-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-m);
+  background: var(--color-mist);
+  padding: var(--space-l);
+  border-radius: var(--radius-m);
+}
+
+.form-hint {
+  font-size: calc(var(--step--1) * 0.9);
+  color: var(--color-text-faint);
+  margin-top: 0.2rem;
+}
+
+
+/* ─── CTA Band Override (text-only, no image bg) ──────────── */
+
+.cta-band {
+  background: var(--color-accent);
+}
+
+.cta-band__sub {
+  max-width: 640px;
+}
+
+
+/* ─── Responsive ──────────────────────────────────────────── */
+
+@media (max-width: 1024px) {
+  .onboarding__steps {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .tracks__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .apply__inner {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .onboarding__steps {
+    grid-template-columns: 1fr;
+  }
+
+  .apply-form {
+    padding: var(--space-m);
+  }
+
+  .page-hero__heading {
+    font-size: var(--step-3);
+  }
+}
