@@ -583,4 +583,25 @@
   background: rgba(180, 60, 60, 0.08);
   color: #8B2020;
   border: 1px solid rgba(180, 60, 60, 0.2);
+}/* ─── Form Messages ───────────────────────────────────────── */
+/* Append these to css/components.css */
+
+.form-message {
+  padding: var(--space-s) var(--space-m);
+  border-radius: var(--radius);
+  font-size: var(--step--1);
+  line-height: 1.6;
+  margin-top: var(--space-s);
+}
+
+.form-message--success {
+  background: rgba(74, 103, 65, 0.12);
+  color: var(--color-accent);
+  border: 1px solid rgba(74, 103, 65, 0.25);
+}
+
+.form-message--error {
+  background: rgba(180, 60, 60, 0.08);
+  color: #8B2020;
+  border: 1px solid rgba(180, 60, 60, 0.2);
 }
