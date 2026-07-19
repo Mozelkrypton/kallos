@@ -1,7 +1,5 @@
 [build]
   publish = "."
 
-[[redirects]]
-  from = "/pages/:page"
-  to = "/pages/:page.html"
-  status = 200
+[build.processing]
+  skip_processing = true
