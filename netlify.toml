@@ -1,29 +1,7 @@
-[[redirects]]
-  from = "/pages/about"
-  to = "/pages/about.html"
-  status = 200
+[build]
+  publish = "."
 
 [[redirects]]
-  from = "/pages/contact"
-  to = "/pages/contact.html"
-  status = 200
-
-[[redirects]]
-  from = "/pages/events"
-  to = "/pages/events.html"
-  status = 200
-
-[[redirects]]
-  from = "/pages/get-involved"
-  to = "/pages/get-involved.html"
-  status = 200
-
-[[redirects]]
-  from = "/pages/media"
-  to = "/pages/media.html"
-  status = 200
-
-[[redirects]]
-  from = "/pages/programs"
-  to = "/pages/programs.html"
+  from = "/pages/:page"
+  to = "/pages/:page.html"
   status = 200
