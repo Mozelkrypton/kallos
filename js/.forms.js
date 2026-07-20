@@ -13,7 +13,7 @@
 
   /* ── Config ───────────────────────────────────────────── */
 
- const API_BASE = 'https://kallos-nwhk.onrender.com'; // update after Railway deploy
+ const API_BASE = 'http://localhost:3000'; // update after Railway deploy
 
   /* ── Helpers ──────────────────────────────────────────── */
 
