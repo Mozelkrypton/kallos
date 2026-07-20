@@ -13,12 +13,12 @@
 
   /* ── Config ───────────────────────────────────────────── */
 
- const API_BASE = 'http://localhost:3000'; // update after Railway deploy
+ const API_BASE = 'http://localhost:3000'; // will update after Railway deploy
 
   /* ── Helpers ──────────────────────────────────────────── */
 
   function showMessage(form, type, text) {
-    // Remove any existing message
+    // will remove any existing message
     const existing = form.querySelector('.form-message');
     if (existing) existing.remove();
 
