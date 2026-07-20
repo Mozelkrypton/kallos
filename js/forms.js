@@ -13,7 +13,7 @@
 
   /* ── Config ───────────────────────────────────────────── */
 
- const API_BASE = 'http://localhost:3000'; // will update after Railway deploy
+ const API_BASE = 'http://localhost:8080'; // will update after Railway deploy
 
   /* ── Helpers ──────────────────────────────────────────── */
 
