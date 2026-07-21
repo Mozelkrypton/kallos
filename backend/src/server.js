@@ -15,16 +15,15 @@ const applyRoute   = require('./routes/apply');
 const app  = express();
 const PORT = process.env.PORT || 3000;
 
-
-/* ── CORS ─────────────────────────────────────────────────── */
-
+* ── CORS ─────────────────────────────────────────────────── */
 const allowedOrigins = [
   process.env.FRONTEND_URL,
   'http://localhost:5500',
   'http://127.0.0.1:5500',
   'http://localhost:8080',
   'http://127.0.0.1:8080',
-].filter(Boolean);
+  'https://kalloskye.netlify.app',
+].filter(Boolean); 
 
 app.use(cors({
   origin: function (origin, callback) {
